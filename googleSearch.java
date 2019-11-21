@@ -40,8 +40,12 @@ public class HomePageTests {
  
          }
 
-    List <WebElement> fifthItem = driver.findElements(By.class("g"));
-    fiftheItem.get(4).click();
+    List <WebElement> searchItem = driver.findElements(By.class("g"));
+    searchItem.get(4).click();
+
+    driver.navigate().back();
+
+    searchItem.get(0).click();
 
     }
 
