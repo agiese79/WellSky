@@ -21,31 +21,40 @@ public class HomePageTests {
     }
 
     @Test
-  public void AhGoogle() {
-    driver.get(baseUrl);
-      
-    WebElement search = driver.findElement(By.name("q"));
-    search.sendKeys("selenium");
-      
-    WebElement go = driver.findElement(By.name("btnK"));
-    go.click();
+    public void AhGoogle() {
+        driver.get(baseUrl);
+        
+        WebElement search = driver.findElement(By.name("q"));
+        search.sendKeys("selenium");
+        
+        WebElement go = driver.findElement(By.name("btnK"));
+        go.click();
 
-    File src= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-    try {
-            FileUtils.copyFile(src, new File("C:/selenium/googleShot.png"));
-        }       
-    catch (IOException e)
-        {
-             System.out.println(e.getMessage());
- 
-         }
+        File src= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        try {
+                FileUtils.copyFile(src, new File("C:/selenium/googleShot.png"));
+            }       
+        catch (IOException e)
+            {
+                System.out.println(e.getMessage());
+    
+            }
 
-    List <WebElement> searchItem = driver.findElements(By.class("g"));
-    searchItem.get(4).click();
+        List <WebElement> searchItem = driver.findElements(By.class("g"));
+        
+        searchItem.get(4).click();
 
-    driver.navigate().back();
+        driver.manage.implicitlyWait(15, TimeUnit.SECONDS);
 
-    searchItem.get(0).click();
+        System.out.println("The page url is: " + driver.getCurrentUrl());
+
+        driver.navigate().back();
+
+        searchItem.get(0).click();
+
+        driver.manage.implicitlyWait(15, TimeUnit.SECONDS);
+
+        System.out.println("The page url is: " + driver.getCurrentUrl());
 
     }
 
