@@ -15,7 +15,6 @@ public class HomePageTests {
        baseUrl = "https://www.google.com";
        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
        driver.manage().window().maximize();
-       driver.get(baseUrl);
        WebDriverWait wait = new WebDriverWait(driver, 30);
        
     }
@@ -58,4 +57,10 @@ public class HomePageTests {
 
     }
 
+    @AfterMethod
+    public void afterMethod() {
+        driver.quit();
+    }
 }
+       
+

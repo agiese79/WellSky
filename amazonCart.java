@@ -16,7 +16,6 @@ public class HomePageTests {
        baseUrl = "https://www.amazon.com";
        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
        driver.manage().window().maximize();
-       driver.get(baseUrl);
        WebDriverWait wait = new WebDriverWait(driver, 30);
        
     }
@@ -69,10 +68,14 @@ public class HomePageTests {
         WebElement goToCart = driver.findElement(By.class("nav-cart-icon nav-sprite"));
         goToCart.click();
 
-        }    
+        }  
+        
+    @AfterMethod
+    public void afterMethod() {
+        driver.quit();
+        }
     }
 }
-
 
 
 
