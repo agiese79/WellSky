@@ -16,7 +16,7 @@ public class HomePageTests {
        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
        driver.manage().window().maximize();
        driver.get(baseUrl);
-       WebDriverWait wait = new WebDriverWait(driver, 120);
+       WebDriverWait wait = new WebDriverWait(driver, 30);
        
     }
 
@@ -41,7 +41,7 @@ public class HomePageTests {
             }
 
         List <WebElement> searchItem = driver.findElements(By.class("g"));
-        
+
         searchItem.get(4).click();
 
         driver.manage.implicitlyWait(15, TimeUnit.SECONDS);
